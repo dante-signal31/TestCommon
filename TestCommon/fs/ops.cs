@@ -9,9 +9,11 @@ namespace TestCommon.fs
         /// Delete an specific file.
         /// </summary>
         /// <param name="filePath"> String with the absolute path to file.</param>
+        /// <exception cref="FileNotFoundException">Exception raised if given file is not found for deletion.</exception>
         public static void delete_file(string filePath)
         {
-            throw new NotImplementedException();
+            if (!File.Exists(filePath)) throw new FileNotFoundException(filePath + " not found to be deleted."); 
+            File.Delete(filePath);
         }
 
         /// <summary>
@@ -19,21 +21,33 @@ namespace TestCommon.fs
         /// </summary>
         /// <param name="files">List with absolute pathname for files to remove.</param>
         /// <param name="ignoreMissing">If true does not return an error if any of files actually does not exists.</param>
-        /// <exception cref="NotImplementedException"></exception>
+        /// <exception cref="FileNotFoundException">Exception raised if any of given files is not found for deletion.</exception>
         public static void delete_files(string[] files, bool ignoreMissing)
         {
-            throw new NotImplementedException();
+            foreach (string file in files)
+            {
+                try
+                {
+                    delete_file(file);
+                }
+                catch (FileNotFoundException e)
+                {
+                    if (ignoreMissing) continue;
+                    throw;
+                }
+            }
         }
 
         /// <summary>
         /// Copy an specific file.
+        ///
+        /// If destination file already exists then it is not overwritten.
         /// </summary>
         /// <param name="sourceFilePath">String with absolute pathname to original file.</param>
         /// <param name="destinationFilePath">String with absolute pathname to copied file.</param>
-        /// <exception cref="NotImplementedException"></exception>
         public static void copy_file(string sourceFilePath, string destinationFilePath)
         {
-            throw new NotImplementedException();
+            File.Copy(sourceFilePath, destinationFilePath, false);
         }
 
         /// <summary>
@@ -46,7 +60,11 @@ namespace TestCommon.fs
         /// <exception cref="NotImplementedException"></exception>
         public static void copy_files(string[] files, string destinationFolderPath)
         {
-            throw new NotImplementedException();
+            foreach (string file in files)
+            {
+                string fileBaseName = Path.GetFileName(file);
+                copy_file(file, Path.Combine(destinationFolderPath, fileBaseName));
+            }
         }
         
     }

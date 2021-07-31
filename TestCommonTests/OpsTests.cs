@@ -87,7 +87,7 @@ namespace TestCommonTests
         public void TestCopyFiles()
         {
             // Create temporal files at default temp folder.
-            var tempFileNames = from _ in Enumerable.Range(0, 2) select Path.GetTempPath();
+            var tempFileNames = (from _ in Enumerable.Range(0, 2) select Path.GetTempFileName()).ToArray();
             // Copy temporal files to our own temporal folder.
             using (Temp tempDir = new Temp(Temp.TempType.Folder))
             {
