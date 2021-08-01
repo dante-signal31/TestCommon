@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Linq;
 
-
-namespace TestCommon.random
+namespace TestCommon.Random
 {
-    public class strings
+    public class Strings
     {
         public static string RandomString(int length)
         {
             string alphanumericAlphabet = "qwertyuiopasdfghjklzxcvbnm1234567890";
             int alphanumericAlphabetLength = alphanumericAlphabet.Length;
-            Random rnd = new Random();
+            global::System.Random rnd = new global::System.Random();
             string generatedString = "";
             foreach (int i in Enumerable.Range(0, length))
             {

@@ -2,7 +2,7 @@
 using System.IO;
 using System.Security.Cryptography;
 
-namespace TestCommon.fs
+namespace TestCommon.Fs
 {
     /// <summary>
     ///  Cryptographic functions for your tests. Here you can find hashing functions to check file contents.

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace TestCommon.fs
+namespace TestCommon.Fs
 {
     /// <summary>
     /// Creates a temporal object in OS current temporal storage.

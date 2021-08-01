@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using TestCommon.random;
+using TestCommon.Random;
 
 namespace TestCommonTests
 {
@@ -9,7 +9,7 @@ namespace TestCommonTests
         public void TestRandomStringLength()
         {
             const int desiredLength = 7;
-            string generatedString = strings.RandomString(desiredLength);
+            string generatedString = Strings.RandomString(desiredLength);
             int generatedLength = generatedString.Length;
             Assert.AreEqual(desiredLength, generatedLength);
         }

@@ -1,6 +1,7 @@
 using System.IO;
 using NUnit.Framework;
 using TestCommon;
+using TestCommon.Fs;
 
 namespace TestCommonTests
 {
@@ -15,7 +16,7 @@ namespace TestCommonTests
         public void TestTempFileCreation()
         {
             string tempFilePath; 
-            using (var tempFile = new TestCommon.fs.Temp(TestCommon.fs.Temp.TempType.File))
+            using (var tempFile = new Temp(Temp.TempType.File))
             {
                 tempFilePath = tempFile.TempPath;
                 // Check file is already created.
@@ -31,7 +32,7 @@ namespace TestCommonTests
         public void TestTempFolderCreation()
         {
             string tempFolderPath; 
-            using (var tempFolder = new TestCommon.fs.Temp(TestCommon.fs.Temp.TempType.Folder))
+            using (var tempFolder = new Temp(Temp.TempType.Folder))
             {
                 tempFolderPath = tempFolder.TempPath;
                 // Check file is already created.

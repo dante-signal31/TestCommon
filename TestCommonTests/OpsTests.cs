@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection.Metadata;
 using NUnit.Framework;
-using TestCommon.fs;
+using TestCommon.Fs;
 
 namespace TestCommonTests
 {

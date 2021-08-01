@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace TestCommon.fs
+namespace TestCommon.Fs
 {
     public class ops
     {
