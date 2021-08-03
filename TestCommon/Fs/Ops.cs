@@ -3,6 +3,11 @@ using System.IO;
 
 namespace TestCommon.Fs
 {
+    /// <summary>
+    /// File operation functions.
+    ///
+    /// Specifically some functions to ease copying and deleting files.
+    /// </summary>
     public class Ops
     {
         /// <summary>

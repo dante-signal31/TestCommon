@@ -37,11 +37,30 @@ namespace TestCommon.Fs
         /// <summary>
         /// You can generate two types of temporal object: File and Folder.
         /// </summary>
-        public enum TempType {File, Folder}
+        public enum TempType
+        {
+            /// <summary>
+            /// Create a temporal file at default temporal folder.
+            ///
+            /// File name is random.
+            /// </summary>
+            File, 
+            
+            /// <summary>
+            ///  Create a temporal folder at default temporal folder.
+            ///
+            /// Folder name is random.
+            /// </summary>
+            Folder
+        }
 
         private TempType _type;
         private string _tempPath;
     
+        /// <summary>
+        /// Create a temporal object at system default temp folder.
+        /// </summary>
+        /// <param name="type">Kind of temporal folder to be created.</param>
         public Temp(TempType type)
         {
             _type = type;
@@ -57,8 +76,14 @@ namespace TestCommon.Fs
             }
         }
 
+        /// <summary>
+        /// Kind of this temporal generated object.
+        /// </summary>
         public TempType Type => _type;
 
+        /// <summary>
+        /// Path to this generated temporal object.
+        /// </summary>
         public string TempPath => _tempPath;
 
         /// <summary>
