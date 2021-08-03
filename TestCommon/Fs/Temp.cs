@@ -34,6 +34,9 @@ namespace TestCommon.Fs
     /// </summary>
     public class Temp: IDisposable
     {
+        /// <summary>
+        /// You can generate two types of temporal object: File and Folder.
+        /// </summary>
         public enum TempType {File, Folder}
 
         private TempType _type;
@@ -58,6 +61,9 @@ namespace TestCommon.Fs
 
         public string TempPath => _tempPath;
 
+        /// <summary>
+        /// On dispose, this context manager removes generated temporary object. 
+        /// </summary>
         public void Dispose()
         {
             switch (_type)

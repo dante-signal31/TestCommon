@@ -3,7 +3,7 @@ using System.IO;
 
 namespace TestCommon.Fs
 {
-    public class ops
+    public class Ops
     {
         /// <summary>
         /// Delete an specific file.
@@ -30,7 +30,7 @@ namespace TestCommon.Fs
                 {
                     delete_file(file);
                 }
-                catch (FileNotFoundException e)
+                catch (FileNotFoundException)
                 {
                     if (ignoreMissing) continue;
                     throw;

@@ -7,7 +7,7 @@ namespace TestCommon.Fs
     /// <summary>
     ///  Cryptographic functions for your tests. Here you can find hashing functions to check file contents.
     /// </summary>
-    public class crypto
+    public class Crypto
     {
         /// <summary>
         /// Hash file content with SHA-256.

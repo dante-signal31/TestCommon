@@ -20,7 +20,7 @@ namespace TestCommonTests
         {
             string tempFilePath = Path.GetTempFileName();
             Assert.True(File.Exists(tempFilePath));
-            ops.delete_file(tempFilePath);
+            Ops.delete_file(tempFilePath);
             Assert.False(File.Exists(tempFilePath));
         }
 
@@ -37,7 +37,7 @@ namespace TestCommonTests
             {
                 Assert.True(File.Exists(filePathName));
             }
-            ops.delete_files(tempFilePathnames, false);
+            Ops.delete_files(tempFilePathnames, false);
             foreach (string filePathName in tempFilePathnames)
             {
                 Assert.False(File.Exists(filePathName));
@@ -56,7 +56,7 @@ namespace TestCommonTests
                 unexistingFile
             };
             // Check non-existing files are detected when ignore_missing is False.
-            Assert.Throws<FileNotFoundException>(() => ops.delete_files(filesToDelete, false));
+            Assert.Throws<FileNotFoundException>(() => Ops.delete_files(filesToDelete, false));
             //Check non-existing files don't raise any exception when ignore_missing is true.
             tempFilePathName = Path.GetTempFileName();
             Assert.True(File.Exists(tempFilePathName));
@@ -65,7 +65,7 @@ namespace TestCommonTests
                 tempFilePathName,
                 unexistingFile
             };
-            ops.delete_files(filesToDelete,true);
+            Ops.delete_files(filesToDelete,true);
             Assert.False(File.Exists(tempFilePathName));
         }
 
@@ -78,7 +78,7 @@ namespace TestCommonTests
             {
                 string expectedFilePathName = Path.Combine(tempDir.TempPath, tempFileName);
                 Assert.False(File.Exists(expectedFilePathName));
-                ops.copy_file(tempFilePathName, expectedFilePathName);
+                Ops.copy_file(tempFilePathName, expectedFilePathName);
                 Assert.True(File.Exists(expectedFilePathName));
             }
         }
@@ -91,7 +91,7 @@ namespace TestCommonTests
             // Copy temporal files to our own temporal folder.
             using (Temp tempDir = new Temp(Temp.TempType.Folder))
             {
-                ops.copy_files(tempFileNames.ToArray(), tempDir.TempPath);
+                Ops.copy_files(tempFileNames.ToArray(), tempDir.TempPath);
                 // Check all created and copied files are actually at our temporal folder.
                 Assert.True(tempFileNames.All(
                     file => File.Exists(

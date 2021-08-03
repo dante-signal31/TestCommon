@@ -18,7 +18,7 @@ namespace TestCommonTests
                 writeStream.Write(contentBytes);
                 writeStream.Flush();
                 writeStream.Close();
-                string recoveredFileHash = crypto.hash_file(tempFile.TempPath);
+                string recoveredFileHash = Crypto.hash_file(tempFile.TempPath);
                 Assert.True(EXPECTED_HASH.Equals(recoveredFileHash));
             }
         }

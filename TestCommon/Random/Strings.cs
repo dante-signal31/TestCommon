@@ -3,8 +3,18 @@ using System.Linq;
 
 namespace TestCommon.Random
 {
+    /// <summary>
+    /// Random strings related functions.
+    /// </summary>
     public class Strings
     {
+        /// <summary>
+        /// Create a random string with given length.
+        ///
+        /// Generated string will have any of these characters: "qwertyuiopasdfghjklzxcvbnm1234567890".
+        /// </summary>
+        /// <param name="length">Length of desired generated string.</param>
+        /// <returns></returns>
         public static string RandomString(int length)
         {
             string alphanumericAlphabet = "qwertyuiopasdfghjklzxcvbnm1234567890";
