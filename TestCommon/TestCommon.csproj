@@ -6,7 +6,7 @@
         <Description>In this package you can find some functions I use frequently at my tests.</Description>
         <PackageProjectUrl>https://github.com/dante-signal31/TestCommon</PackageProjectUrl>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <Copyright>Copyright (c) 2021, dante-signal31</Copyright>
+        <Copyright>Copyright (c) 2021, dante-signal31, All rights reserved.</Copyright>
         <PackageLicenseUrl>https://github.com/dante-signal31/TestCommon/blob/master/LICENSE</PackageLicenseUrl>
         <RepositoryUrl>https://github.com/dante-signal31/TestCommon.git</RepositoryUrl>
         <RepositoryType>GIT</RepositoryType>
