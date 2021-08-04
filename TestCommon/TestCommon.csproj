@@ -5,6 +5,23 @@
         <Title>Common functions useful for C# tests.</Title>
         <Description>In this package you can find some functions I use frequently at my tests.</Description>
         <PackageProjectUrl>https://github.com/dante-signal31/TestCommon</PackageProjectUrl>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Copyright>Copyright (c) 2021, dante-signal31</Copyright>
+        <PackageLicenseUrl>https://github.com/dante-signal31/TestCommon/blob/master/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/dante-signal31/TestCommon.git</RepositoryUrl>
+        <RepositoryType>GIT</RepositoryType>
+        <Authors>dante.signal31@gmail.com</Authors>
+        <PackageId>DanteSignal31.TestCommon</PackageId>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <PackageVersion>1.1.0</PackageVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DocumentationFile>bin\Release\TestCommon.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <DocumentationFile>bin\Debug\TestCommon.xml</DocumentationFile>
     </PropertyGroup>
 
 </Project>

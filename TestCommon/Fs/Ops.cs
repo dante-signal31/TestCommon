@@ -71,6 +71,32 @@ namespace TestCommon.Fs
                 copy_file(file, Path.Combine(destinationFolderPath, fileBaseName));
             }
         }
+
+        /// <summary>
+        /// Copy an entire folder tree structure to a new root.
+        ///
+        /// Original files are untouched.
+        /// </summary>
+        /// <param name="originalRoot">Root folder to take beneath folder from.</param>
+        /// <param name="copyRoot">Folder to copy tree under.</param>
+        public static void recreate_folder_tree(string originalRoot, string copyRoot)
+        {
+            foreach (FileWalker.Entry entry in FileWalker.FileWalk(originalRoot))
+            {
+                if (entry.Type == FileWalker.EntryType.File)
+                {
+                    // If it es a file just copy it.
+                    string relativeFileName = Path.GetRelativePath(originalRoot, entry.Name);
+                    copy_file(entry.Name, Path.Combine(copyRoot, relativeFileName));
+                }
+                else
+                {
+                    // If it is a folder then we must create at destination.
+                    string folderSubPath = Path.GetRelativePath(originalRoot, entry.Name);
+                    Directory.CreateDirectory(Path.Combine(copyRoot, folderSubPath));
+                }
+            }
+        }
         
     }
 }

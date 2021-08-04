@@ -10,6 +10,23 @@ namespace TestCommonTests
 {
     public class OpsTests
     {
+        private string[] originalTestFolderTree = new[]
+        {
+            "..\\..\\..\\test_data\\Original root",
+            "..\\..\\..\\test_data\\Original root\\Folder 1",
+            "..\\..\\..\\test_data\\Original root\\Folder 1\\Folder A",
+            "..\\..\\..\\test_data\\Original root\\Folder 1\\Folder A\\File_to_ignore_2.txt",
+            "..\\..\\..\\test_data\\Original root\\Folder 1\\File_to_ignore.txt",
+            "..\\..\\..\\test_data\\Original root\\Folder 1\\Folder B",
+            "..\\..\\..\\test_data\\Original root\\Folder 2",
+            "..\\..\\..\\test_data\\Original root\\Folder 2\\Folder A.lnk",
+            "..\\..\\..\\test_data\\Original root\\Folder 2\\Folder B.lnk",
+            "..\\..\\..\\test_data\\Original root\\Folder 2\\Folder C",
+            "..\\..\\..\\test_data\\Original root\\Folder 3",
+            "..\\..\\..\\test_data\\Original root\\Folder 3\\Folder A.lnk",
+            "..\\..\\..\\test_data\\Original root\\Folder 3\\Folder C.lnk",
+        };
+        
         [SetUp]
         public void Setup()
         {
@@ -99,6 +116,21 @@ namespace TestCommonTests
                             Path.GetFileName(file))
                         )
                     ));
+            }
+        }
+
+        [Test]
+        public void TestRecreateFolderTree()
+        {
+            using (Temp tempFolder = new Temp(Temp.TempType.Folder))
+            {
+                Ops.recreate_folder_tree("..\\..\\..\\test_data\\Original root", tempFolder.TempPath);
+                Assert.True(File.Exists(Path.Combine(tempFolder.TempPath, "Folder 1\\Folder A\\File_to_ignore_2.txt")));
+                Assert.True(File.Exists(Path.Combine(tempFolder.TempPath, "Folder 1\\File_to_ignore.txt")));
+                Assert.True(File.Exists(Path.Combine(tempFolder.TempPath, "Folder 2\\Folder A.lnk")));
+                Assert.True(File.Exists(Path.Combine(tempFolder.TempPath, "Folder 2\\Folder B.lnk")));
+                Assert.True(File.Exists(Path.Combine(tempFolder.TempPath, "Folder 3\\Folder A.lnk")));
+                Assert.True(File.Exists(Path.Combine(tempFolder.TempPath, "Folder 3\\Folder C.lnk")));
             }
         }
     }
