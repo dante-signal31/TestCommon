@@ -8,7 +8,6 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Copyright>Copyright (c) 2021, dante-signal31, All rights reserved.</Copyright>
         <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
-        <PackageLicenseUrl>https://github.com/dante-signal31/TestCommon/blob/master/LICENSE</PackageLicenseUrl>
         <RepositoryUrl>https://github.com/dante-signal31/TestCommon.git</RepositoryUrl>
         <RepositoryType>GIT</RepositoryType>
         <Authors>dante.signal31@gmail.com</Authors>
