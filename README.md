@@ -9,6 +9,8 @@ In this package you can find some functions I use frequently at my tests.
 Package with filesystem utilities. They are useful to prepare folders and files for your tests.
 ###### Crypto
 Cryptographic functions for your tests. Here you can find hashing functions to check file contents.
+###### Filewalker
+Iterator to traverse folder trees.
 ###### Ops
 Functions for file operations (copy, delete, etc).
 ###### Temp
