@@ -4,6 +4,12 @@ using System.IO;
 
 namespace TestCommon.Fs
 {
+    /// <summary>
+    /// Class to walk through folder tree.
+    ///
+    /// It offers a <c>FileWalk</c> iterator that returns an Entry type at a time. Each Entry is whether a file or folder
+    /// under root folder. Once iterator ends then all entries have been returned.
+    /// </summary>
     public class FileWalker
     {
         /// <summary>
@@ -11,7 +17,14 @@ namespace TestCommon.Fs
         /// </summary>
         public enum EntryType
         {
+            /// <summary>
+            /// This entry is a file.
+            /// </summary>
             File,
+            
+            /// <summary>
+            /// This entry is a folder.
+            /// </summary>
             Folder
         }
 
@@ -52,13 +65,34 @@ namespace TestCommon.Fs
                 set => _type = value;
             }
 
+            /// <summary>
+            /// Return true if this entry is a file.
+            /// </summary>
+            /// <returns></returns>
             public bool IsFile() => this._type == EntryType.File ? true : false;
+            
+            /// <summary>
+            /// Return tru if this entry is a folder.
+            /// </summary>
+            /// <returns></returns>
             public bool IsFolder() => this._type == EntryType.Folder ? true : false;
+            
+            /// <summary>
+            /// Compare to another entry.
+            /// </summary>
+            /// <param name="x">Entry 1</param>
+            /// <param name="y">Entry 2</param>
+            /// <returns>Returns true it their Names and Type properties are the same.</returns>
             public bool Equals(Entry x, Entry y)
             {
                 return ((x.Name.Equals(y.Name)) && (x.Type.Equals(y.Type)));
             }
 
+            /// <summary>
+            /// Needed to compare Entry types.
+            /// </summary>
+            /// <param name="obj"></param>
+            /// <returns></returns>
             public int GetHashCode(Entry obj)
             {
                 string hashString = obj.Name;
